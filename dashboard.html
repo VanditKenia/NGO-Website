@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Mumbai NGOs</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Mumbai NGOs</h1>
+        <nav>
+            <a href="{{ url_for('ngo_details') }}" class="button">NGO Details</a>
+            <a href="{{ url_for('event_details') }}" class="button">Event Details</a>
+            <a href="{{ url_for('volunteer_form') }}" class="button">Volunteer Form</a>
+        </nav>
+    </div>
+</body>
+</html>

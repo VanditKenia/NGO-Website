@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NGO Details - Mumbai NGOs</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>NGO Details</h1>
+        <table>
+            <tr>
+                <th>NGO Name</th>
+                <th>NGO ID</th>
+                <th>Location</th>
+                <th>Contact</th>
+            </tr>
+            {% for ngo in ngos %}
+            <tr>
+                <td>{{ ngo[1] }}</td>
+                <td>{{ ngo[2] }}</td>
+                <td>{{ ngo[3] }}</td>
+                <td>{{ ngo[4] }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <h2>Add NGO</h2>
+        <form method="POST">
+            <input type="text" name="name" placeholder="NGO Name" required>
+            <input type="text" name="ngo_id" placeholder="NGO ID" required>
+            <input type="text" name="location" placeholder="Location" required>
+            <input type="text" name="contact" placeholder="Contact" required>
+            <button type="submit">Add NGO</button>
+        </form>
+        <a href="{{ url_for('dashboard') }}" class="button">Back to Dashboard</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Details - Mumbai NGOs</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Event Details</h1>
+        <table>
+            <tr>
+                <th>Event Name</th>
+                <th>Details</th>
+                <th>Location</th>
+                <th>Date & Time</th>
+                <th>NGO Name</th>
+            </tr>
+            {% for event in events %}
+            <tr>
+                <td>{{ event[1] }}</td>
+                <td>{{ event[2] }}</td>
+                <td>{{ event[3] }}</td>
+                <td>{{ event[4] }}</td>
+                <td>{{ event[5] }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <h2>Add Event</h2>
+        <form method="POST">
+            <input type="text" name="name" placeholder="Event Name" required>
+            <textarea name="details" placeholder="Event Details" required></textarea>
+            <input type="text" name="location" placeholder="Location" required>
+            <input type="datetime-local" name="date_time" required>
+            <input type="text" name="ngo_name" placeholder="NGO Name" required>
+            <button type="submit">Add Event</button>
+        </form>
+        <a href="{{ url_for('dashboard') }}" class="button">Back to Dashboard</a>
+    </div>
+</body>
+</html>
